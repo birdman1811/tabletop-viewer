@@ -8,7 +8,7 @@ import PlayerList from './PlayerList';
 
 
 const PLAYERS = [
-  {Name: 'Sam Smith', Phone: '07582369741', Session: 'Session A'},
+  {Name: 'Sam Smith', Phone: '07582369741', Session: 'Session A', Deleted: false},
 
 ]
 
