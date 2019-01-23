@@ -6,6 +6,7 @@ class Player extends React.Component {
     constructor(props) {
         super (props);
         this.state = {
+        id = props.id,
         name = props.name,
         phone = props.phone,
         props = props.session
@@ -23,6 +24,7 @@ class Player extends React.Component {
     render(){
         return (
             <div className="player">
+            <span>{id}</span>
             <span>{name}</span>
             <span>{phone}</span>
             <span>{session}</span>
