@@ -4,6 +4,7 @@ import './index.css';
 
 class Player extends React.Component {
     constructor(props) {
+        super (props);
         this.state = {
         name = props.name,
         phone = props.phone,
