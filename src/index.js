@@ -5,15 +5,12 @@ import './index.css';
 import Player from './Player';
 import PlayerList from './PlayerList';
 
-function PlayerList(props) {
-  return(
-    <div>
-      {props.items.map((player, id) => (
-        <Item key={id} item={player} />
-      ))}
-    </div>
-  );
-}
+
+
+const PLAYERS = [
+  {Name: 'Sam Smith', Phone: '07582369741', Session: 'Session A'},
+
+]
 
 ReactDOM.render(
     <Viewer />,
