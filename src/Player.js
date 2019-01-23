@@ -29,3 +29,4 @@ class Player extends React.Component {
         )
     }
 }
+

@@ -4,4 +4,8 @@ import './index.css';
 
 class PlayerList extends React.Component {
 
+render() {
+    
+}
+
 }
