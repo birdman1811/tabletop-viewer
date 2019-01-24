@@ -22,10 +22,7 @@ class Viewer extends React.Component
   render() {
     return (
       <div>
-        <SessionBar
-        sessionSelected={this.state.sessionSelected}
-        onSessionSelectedChange={this.handleSessionSelectedChange}
-        />
+        
         <PlayerTable
         players={this.props.players}
         sessionSelected={this.state.sessionSelected}
@@ -34,7 +31,7 @@ class Viewer extends React.Component
     );
   }
 }
-
+/*
 class SessionBar extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +48,7 @@ class SessionBar extends React.Component {
         <p>
         <input
         type="button"
-        onClick={(a) => this.handleSessionSelectedChange(a)}
+        onClick={(A) => this.handleSessionSelectedChange(A)}
         />
         Session A
         </p>
@@ -59,30 +56,30 @@ class SessionBar extends React.Component {
         <p>
         <input
         type="button"
-        onClick={(b) =>this.handleSessionSelectedChange(b)}
+        onClick={(B) => this.handleSessionSelectedChange(B)}
         />
         Session B
         </p>
       </form>
     );
   }
-}
+}*/
 
 class PlayerTable extends React.Component {
   render() {
     const sessionSelected = this.props.sessionSelected;
 
     const rows =[];
-
+    
     this.props.players.forEach((player) =>{
-      
+    if (player.Deleted === 'false'){
     rows.push(
       <PlayerRow
       player ={player}
       key={player.Name}
       />
     );
-      
+    }
   });
   
   return(
@@ -101,14 +98,16 @@ class PlayerTable extends React.Component {
 }
 
 class PlayerRow extends React.Component {
+  
   render() {
-    const player = this.props.player;
+    const player = this.props.player;    
 
     return (
       <tr>
         <td>{player.Name}</td>
         <td>{player.Phone}</td>
-        <td>{player.Session}</td>
+        <td>{player.Session}</td>        
+        <button onClick={player.Deleted = 'true'}>Delete Player</button>
       </tr>
     );
   }
@@ -117,14 +116,14 @@ class PlayerRow extends React.Component {
 
 
 const PLAYERS = [
-  {Name: 'Sam Smith', Phone: '07582369741', Session: 'A', Deleted: false},
-  {Name: 'John Beer', Phone: '07568974128', Session: 'B', Deleted: false},
-  {Name: 'Jason Finch', Phone: '07852369741', Session: 'A', Deleted: false},
-  {Name: 'Ben Shearer', Phone: '07951753864', Session: 'A', Deleted: false},
-  {Name: 'Mike Richards', Phone: '07826469821', Session: 'B', Deleted: false},
-  {Name: 'Lewis Pilchard', Phone: '07654937826', Session: 'B', Deleted: false},
-  {Name: 'Louise Brown', Phone: '07972364729', Session: 'A', Deleted: false},
-  {Name: 'Kim Geer', Phone: '07952875637', Session: 'B', Deleted: false},
+  {Name: 'Sam Smith', Phone: '07582369741', Session: 'A', Deleted: 'false'},
+  {Name: 'John Beer', Phone: '07568974128', Session: 'B', Deleted: 'false'},
+  {Name: 'Jason Finch', Phone: '07852369741', Session: 'A', Deleted: 'false'},
+  {Name: 'Ben Shearer', Phone: '07951753864', Session: 'A', Deleted: 'false'},
+  {Name: 'Mike Richards', Phone: '07826469821', Session: 'B', Deleted: 'false'},
+  {Name: 'Lewis Pilchard', Phone: '07654937826', Session: 'B', Deleted: 'false'},
+  {Name: 'Louise Brown', Phone: '07972364729', Session: 'A', Deleted: 'false'},
+  {Name: 'Kim Geer', Phone: '07952875637', Session: 'B', Deleted: 'false'},
 ]
 
 ReactDOM.render(

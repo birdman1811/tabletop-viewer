@@ -1,0 +1,10 @@
+th{
+    width:10%;
+}
+
+td{
+    text-align: center;
+    border-bottom: 1pt;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+}
