@@ -7,73 +7,23 @@ import './index.css';
 class Viewer extends React.Component 
 {
   constructor(props) {
-    super(props);
-    this.state = {
-      sessionSelected: '',
-       
-    };
-    this.handleSessionSelectedChange = this.handleSessionSelectedChange.bind(this);
+    super(props);     
     
-  }
-
-  handleSessionSelectedChange(sessionSelected) {
-    this.setState({
-      sessionSelected: sessionSelected
-      
-    });
-  }
-
-  
+  }    
 
   render() {
     return (
       <div>
         
         <PlayerTable
-        players={this.props.players}
-        sessionSelected={this.state.sessionSelected}
+        players={this.props.players}        
         />
         <p></p>
-        <AddPlayer
-        players={this.props.players}
-        />
+        
       </div>
     );
   }
 }
-/*
-class SessionBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSessionSelectedChange = this.handleSessionSelectedChange.bind(this);
-  }
-
-  handleSessionSelectedChange(x) {
-    this.props.onSessionSelectedChange(x.target.value);
-  }
-
-  render() {
-    return (
-      <form>
-        <p>
-        <input
-        type="button"
-        onClick={(A) => this.handleSessionSelectedChange(A)}
-        />
-        Session A
-        </p>
-
-        <p>
-        <input
-        type="button"
-        onClick={(B) => this.handleSessionSelectedChange(B)}
-        />
-        Session B
-        </p>
-      </form>
-    );
-  }
-}*/
 
 class AddPlayer extends React.Component{
   constructor(props) {
@@ -155,8 +105,7 @@ class AddPlayer extends React.Component{
 class PlayerTable extends React.Component {
    
 
-  render() {
-    const sessionSelected = this.props.sessionSelected;
+  render() {    
 
     const rows =[];    
     this.props.players.forEach((player) =>{      
@@ -171,6 +120,7 @@ class PlayerTable extends React.Component {
   });
   
   return(
+    <div>
     <table>
       <thead>
         <tr>
@@ -181,7 +131,11 @@ class PlayerTable extends React.Component {
       </thead>
       <tbody>{rows}</tbody>
       
-    </table>    
+    </table>
+    <AddPlayer
+    players={this.props.players}
+    />   
+    </div> 
   )
 }
 }
