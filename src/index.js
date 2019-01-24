@@ -51,7 +51,7 @@ class SessionBar extends React.Component {
         <p>
         <input
         type="button"
-        onClick={this.handleSessionSelectedChange(a)}
+        onClick={(a) => this.handleSessionSelectedChange(a)}
         />
         Session A
         </p>
@@ -59,7 +59,7 @@ class SessionBar extends React.Component {
         <p>
         <input
         type="button"
-        onClick={this.handleSessionSelectedChange(b)}
+        onClick={(b) =>this.handleSessionSelectedChange(b)}
         />
         Session B
         </p>
@@ -69,23 +69,65 @@ class SessionBar extends React.Component {
 }
 
 class PlayerTable extends React.Component {
+  render() {
+    const sessionSelected = this.props.sessionSelected;
+
+    const rows =[];
+
+    this.props.players.forEach((player) =>{
+      
+    rows.push(
+      <PlayerRow
+      player ={player}
+      key={player.Name}
+      />
+    );
+      
+  });
   
+  return(
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Session</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  )
+}
+}
+
+class PlayerRow extends React.Component {
+  render() {
+    const player = this.props.player;
+
+    return (
+      <tr>
+        <td>{player.Name}</td>
+        <td>{player.Phone}</td>
+        <td>{player.Session}</td>
+      </tr>
+    );
+  }
 }
 
 
 
 const PLAYERS = [
-  {Name: 'Sam Smith', Phone: '07582369741', Session: 'Session A', Deleted: false},
-  {Name: 'John Beer', Phone: '07568974128', Session: 'Session B', Deleted: false},
-  {Name: 'Jason Finch', Phone: '07852369741', Session: 'Session A', Deleted: false},
-  {Name: 'Ben Shearer', Phone: '07951753864', Session: 'Session A', Deleted: false},
-  {Name: 'Mike Richards', Phone: '07826469821', Session: 'Session B', Deleted: false},
-  {Name: 'Lewis Pilchard', Phone: '07654937826', Session: 'Session B', Deleted: false},
-  {Name: 'Louise Brown', Phone: '07972364729', Session: 'Session A', Deleted: false},
-  {Name: 'Kim Geer', Phone: '07952875637', Session: 'Session B', Deleted: false},
+  {Name: 'Sam Smith', Phone: '07582369741', Session: 'A', Deleted: false},
+  {Name: 'John Beer', Phone: '07568974128', Session: 'B', Deleted: false},
+  {Name: 'Jason Finch', Phone: '07852369741', Session: 'A', Deleted: false},
+  {Name: 'Ben Shearer', Phone: '07951753864', Session: 'A', Deleted: false},
+  {Name: 'Mike Richards', Phone: '07826469821', Session: 'B', Deleted: false},
+  {Name: 'Lewis Pilchard', Phone: '07654937826', Session: 'B', Deleted: false},
+  {Name: 'Louise Brown', Phone: '07972364729', Session: 'A', Deleted: false},
+  {Name: 'Kim Geer', Phone: '07952875637', Session: 'B', Deleted: false},
 ]
 
 ReactDOM.render(
     <Viewer players={PLAYERS}/>,
-    document.getElementById('container')
+    document.getElementById('root')
   );
