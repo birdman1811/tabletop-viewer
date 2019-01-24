@@ -7,4 +7,13 @@ td{
     border-bottom: 1pt;
     border-bottom-color: black;
     border-bottom-style: solid;
+    width: 30%;
+    height: 25pt;
+}
+
+button{
+    height: 25pt;
+    border-bottom: 1pt;
+    border-bottom-color: black;
+    border-bottom-style: solid;
 }

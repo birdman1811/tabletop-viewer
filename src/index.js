@@ -10,7 +10,7 @@ class Viewer extends React.Component
     super(props);
     this.state = {
       sessionSelected: '',
-      newPlayer: {},
+      newPlayer: {Name: '', Phone: '', Session: '', Deleted: 'false'},
       newPlayerName:'',
       newPlayerPhone:'',
       newPlayerSession:'',      
@@ -19,6 +19,7 @@ class Viewer extends React.Component
     this.handleNewPlayerName = this.handleNewPlayerName.bind(this);
     this.handleNewPlayerPhone = this.handleNewPlayerPhone.bind(this);
     this.handleNewPlayerSession = this.handleNewPlayerSession.bind(this);
+    this.handleNewPlayerChange = this.handleNewPlayerChange.bind(this);
   }
 
   handleSessionSelectedChange(sessionSelected) {
@@ -29,21 +30,27 @@ class Viewer extends React.Component
   }
 
   handleNewPlayerName(event){
-    this.setState({newPlayerName: event.target.newPlayerName});
+    this.setState({newPlayerName: event.target.value});
+    
   }
 
   handleNewPlayerPhone(event){
-    this.setState({newPlayerPhone: event.target.newPlayerPhone});
+    this.setState({newPlayerPhone: event.target.value});
+    
   }
 
   handleNewPlayerSession(event){
-    this.setState({newPlayerSession: event.target.newPlayerSession});
+    this.setState({newPlayerSession: event.target.value});    
   }
 
-  handleSubmit(event) {
+  handleNewPlayerChange(){
     this.setState({
       newPlayer: {Name: this.state.newPlayerName, Phone: this.state.newPlayerPhone, Session: this.state.newPlayerSession, Deleted: 'false'}
     })
+  }
+
+  handleSubmit(event) {  
+    this.handleNewPlayerChange();
     this.props.players.push(this.state.newPlayer);
     event.preventDefault();
   }
@@ -58,21 +65,21 @@ class Viewer extends React.Component
         />
         <p></p>
         <form>
-          <label>Name:
+          <label>Name:<br></br>
           <input
           type="text"
           value={this.state.newPlayerName}
           onChange={this.handleNewPlayerName}
           />
           </label><p></p>
-          <label>Phone
+          <label>Phone:<br></br>
           <input
           type="text"
           value={this.state.newPlayerPhone}
           onChange={this.handleNewPlayerPhone}
           />
           </label><p></p>
-          <label>Session
+          <label>Session:<br></br>
           <input
           type="text"
           value={this.state.newPlayerSession}
