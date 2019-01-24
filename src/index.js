@@ -66,6 +66,11 @@ class SessionBar extends React.Component {
 }*/
 
 class PlayerTable extends React.Component {
+
+   Update(){
+    this.forceUpdate();
+  }
+
   render() {
     const sessionSelected = this.props.sessionSelected;
 
@@ -98,22 +103,45 @@ class PlayerTable extends React.Component {
 }
 
 class PlayerRow extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      deleted: this.props.player.Deleted,
+
+    };
+    this.handleDeletedChanged = this.handleDeletedChanged.bind(this);
+  }
+
+  handleDeletedChanged() {
+    this.setState({
+      deleted: 'true'
+    });
+  }
+  
+  DeletePlayer(){
+    this.props.player.Deleted = 'true'; 
+    this.handleDeletedChanged()  
+  }
   
   render() {
     const player = this.props.player;    
+    if (player.Deleted === 'false'){
 
-    return (
+    return (      
       <tr>
         <td>{player.Name}</td>
         <td>{player.Phone}</td>
-        <td>{player.Session}</td>        
-        <button onClick={player.Deleted = 'true'}>Delete Player</button>
+        <td>{player.Session}</td>       
+        <button onClick={() => this.DeletePlayer()}>Delete Player</button>
       </tr>
-    );
+    )    
+    }
+    return(
+      <tr></tr>
+    )
   }
 }
-
-
 
 const PLAYERS = [
   {Name: 'Sam Smith', Phone: '07582369741', Session: 'A', Deleted: 'false'},
