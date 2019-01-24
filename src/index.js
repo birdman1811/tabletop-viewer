@@ -228,14 +228,29 @@ class PlayerRow extends React.Component {
 }
 
 const PLAYERS = [
-  {Name: 'Sam Smith', Phone: '07582369741', Session: 'A', Deleted: 'false'},
-  {Name: 'John Beer', Phone: '07568974128', Session: 'B', Deleted: 'false'},
-  {Name: 'Jason Finch', Phone: '07852369741', Session: 'A', Deleted: 'false'},
-  {Name: 'Ben Shearer', Phone: '07951753864', Session: 'A', Deleted: 'false'},
-  {Name: 'Mike Richards', Phone: '07826469821', Session: 'B', Deleted: 'false'},
-  {Name: 'Lewis Pilchard', Phone: '07654937826', Session: 'B', Deleted: 'false'},
-  {Name: 'Louise Brown', Phone: '07972364729', Session: 'A', Deleted: 'false'},
-  {Name: 'Kim Geer', Phone: '07952875637', Session: 'B', Deleted: 'false'},
+  {Name: 'Joe Caputo', Phone: '07658312387', Session: 'Black Rain', Deleted: 'false'},
+  {Name: 'Piper Chapman', Phone: '07142548798', Session: 'Black Rain', Deleted: 'false'},
+  {Name: 'Tasha Jefferson', Phone: '07998987220', Session: 'Black Rain', Deleted: 'false'},
+  {Name: 'Gloria Mendoza', Phone: '07512645873', Session: 'Black Rain', Deleted: 'false'},
+  {Name: 'Theodore Bagwell', Phone: '07561384896', Session: 'One Last Riddle', Deleted: 'false'},
+  {Name: 'Brad Bellick', Phone: '07883256418', Session: 'One Last Riddle', Deleted: 'false'},
+  {Name: 'Lincoln Burrows', Phone: '07112356983', Session: 'One Last Riddle', Deleted: 'false'},
+  {Name: 'Fernando Sucre', Phone: '07963212321', Session: 'One Last Riddle', Deleted: 'false'},
+  {Name: 'Sara Tancredi', Phone: '07954186684', Session: 'One Last Riddle', Deleted: 'false'},
+  {Name: 'Daryl Dixon', Phone: '07325649845', Session: 'The Burning Plague', Deleted: 'false'},
+  {Name: 'Maggie Greene', Phone: '07459832185', Session: 'The Burning Plague', Deleted: 'false'},
+  {Name: 'Carol Peletier', Phone: '07124979566', Session: 'The Burning Plague', Deleted: 'false'},
+  {Name: 'Eugene Porter', Phone: '07223654987', Session: 'The Burning Plague', Deleted: 'false'},
+  {Name: 'Billy Cranston', Phone: '07985645784', Session: 'The Sea Witch', Deleted: 'false'},
+  {Name: 'Kimberly Hart', Phone: '07815307459', Session: 'The Sea Witch', Deleted: 'false'},
+  {Name: 'Trini Kwan', Phone: '07548755285', Session: 'The Sea Witch', Deleted: 'false'},
+  {Name: 'Tommy Oliver', Phone: '07989444568', Session: 'The Sea Witch', Deleted: 'false'},
+  {Name: 'Jason Scott', Phone: '07774854987', Session: 'The Sea Witch', Deleted: 'false'},
+  {Name: 'Zack Taylor', Phone: '07845222547', Session: 'The Sea Witch', Deleted: 'false'},
+  {Name: 'Joyce Byers', Phone: '07954668187', Session: 'Tomb of Horrors', Deleted: 'false'},
+  {Name: 'Dustin Henderson', Phone: '07889554857', Session: 'Tomb of Horrors', Deleted: 'false'},
+  {Name: 'Jim Hopper', Phone: '07954845148', Session: 'Tomb of Horrors', Deleted: 'false'},
+  {Name: 'Nancy Wheeler', Phone: '07445845711', Session: 'Tomb of Horrors', Deleted: 'false'}
 ]
 
 ReactDOM.render(
