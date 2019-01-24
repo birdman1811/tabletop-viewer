@@ -2,21 +2,50 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
+
 class Viewer extends React.Component 
 {
   constructor(props) {
     super(props);
     this.state = {
       sessionSelected: '',
-
+      newPlayer: {},
+      newPlayerName:'',
+      newPlayerPhone:'',
+      newPlayerSession:'',      
     };
     this.handleSessionSelectedChange = this.handleSessionSelectedChange.bind(this);
+    this.handleNewPlayerName = this.handleNewPlayerName.bind(this);
+    this.handleNewPlayerPhone = this.handleNewPlayerPhone.bind(this);
+    this.handleNewPlayerSession = this.handleNewPlayerSession.bind(this);
   }
 
   handleSessionSelectedChange(sessionSelected) {
     this.setState({
       sessionSelected: sessionSelected
+      
     });
+  }
+
+  handleNewPlayerName(event){
+    this.setState({newPlayerName: event.target.newPlayerName});
+  }
+
+  handleNewPlayerPhone(event){
+    this.setState({newPlayerPhone: event.target.newPlayerPhone});
+  }
+
+  handleNewPlayerSession(event){
+    this.setState({newPlayerSession: event.target.newPlayerSession});
+  }
+
+  handleSubmit(event) {
+    this.setState({
+      newPlayer: {Name: this.state.newPlayerName, Phone: this.state.newPlayerPhone, Session: this.state.newPlayerSession, Deleted: 'false'}
+    })
+    this.props.players.push(this.state.newPlayer);
+    event.preventDefault();
   }
 
   render() {
@@ -27,6 +56,32 @@ class Viewer extends React.Component
         players={this.props.players}
         sessionSelected={this.state.sessionSelected}
         />
+        <p></p>
+        <form>
+          <label>Name:
+          <input
+          type="text"
+          value={this.state.newPlayerName}
+          onChange={this.handleNewPlayerName}
+          />
+          </label><p></p>
+          <label>Phone
+          <input
+          type="text"
+          value={this.state.newPlayerPhone}
+          onChange={this.handleNewPlayerPhone}
+          />
+          </label><p></p>
+          <label>Session
+          <input
+          type="text"
+          value={this.state.newPlayerSession}
+          onChange={this.handleNewPlayerSession}
+          />
+          </label><p></p>
+
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
   }
@@ -66,17 +121,13 @@ class SessionBar extends React.Component {
 }*/
 
 class PlayerTable extends React.Component {
-
-   Update(){
-    this.forceUpdate();
-  }
+   
 
   render() {
     const sessionSelected = this.props.sessionSelected;
 
-    const rows =[];
-    
-    this.props.players.forEach((player) =>{
+    const rows =[];    
+    this.props.players.forEach((player) =>{      
     if (player.Deleted === 'false'){
     rows.push(
       <PlayerRow
@@ -97,7 +148,8 @@ class PlayerTable extends React.Component {
         </tr>
       </thead>
       <tbody>{rows}</tbody>
-    </table>
+      
+    </table>    
   )
 }
 }
