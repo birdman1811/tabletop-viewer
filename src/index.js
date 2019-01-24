@@ -24,7 +24,6 @@ class Viewer extends React.Component
     );
   }
 }
-
 class AddPlayer extends React.Component{
   constructor(props) {
     super(props);
@@ -101,6 +100,7 @@ class AddPlayer extends React.Component{
     );
   }
 }
+
 
 class PlayerTable extends React.Component {
    
